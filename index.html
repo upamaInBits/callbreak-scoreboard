@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Callbreak Scoreboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Callbreak</p>
+        <h1>Scoreboard</h1>
+  
+      </div>
+
+      <button id="newGameBtn" class="danger-btn" type="button">New Game</button>
+    </section>
+
+<nav class="screen-nav">
+  <button class="nav-btn active" data-screen="playersScreen" type="button">Players</button>
+  <button class="nav-btn locked" data-screen="roundScreen" type="button" disabled>Round</button>
+  <button class="nav-btn locked" data-screen="scoreboardScreen" type="button" disabled>Scoreboard</button>
+  <button class="nav-btn locked" data-screen="historyScreen" type="button" disabled>History</button>
+</nav>
+
+    <!-- PLAYERS SCREEN -->
+    <section id="playersScreen" class="screen active">
+      <div class="card">
+        <h2>Players</h2>
+
+        <div class="players-grid">
+          <label>
+            Player 1
+            <input id="player0" type="text" value="Player 1" />
+          </label>
+
+          <label>
+            Player 2
+            <input id="player1" type="text" value="Player 2" />
+          </label>
+
+          <label>
+            Player 3
+            <input id="player2" type="text" value="Player 3" />
+          </label>
+
+          <label>
+            Player 4
+            <input id="player3" type="text" value="Player 4" />
+          </label>
+        </div>
+
+        <button id="savePlayersBtn" class="main-btn" type="button">
+          Save Names
+        </button>
+        <p id="playerErrorMsg" class="error-msg"></p>
+      </div>
+    </section>
+
+    <!-- ROUND SCREEN -->
+    <section id="roundScreen" class="screen">
+      <div class="card">
+        <div class="section-top">
+          <h2 id="roundTitle">Round Entry</h2>
+          <span id="roundNumber" class="round-pill">Round 1 of 5</span>
+        </div>
+
+        <div id="gameCompleteBox" class="complete-box hidden">
+          <h3>Game Complete 🎉</h3>
+          <p>The 5 rounds are finished. Check the final ranking on the scoreboard.</p>
+
+          <button id="newGameAfterCompleteBtn" class="main-btn" type="button">
+            Start New Game
+          </button>
+        </div>
+
+        <div id="roundEntryBox">
+          <div class="step-tabs">
+            <button id="callTab" class="step-tab active" type="button">1. Calls</button>
+            <button id="wonTab" class="step-tab" type="button">2. Won Tricks</button>
+          </div>
+
+          <div id="callStep">
+            <p class="helper-text">
+              First, enter how many tricks each player calls.
+            </p>
+
+            <div id="callForm" class="round-form"></div>
+
+            <button id="saveCallsBtn" class="main-btn" type="button">
+              Save Calls & Start Playing
+            </button>
+          </div>
+
+          <div id="wonStep" class="hidden">
+            <p class="helper-text">
+              After playing the round, enter how many tricks each player won.
+            </p>
+
+            <div id="wonForm" class="round-form"></div>
+
+            <button id="saveRoundBtn" class="main-btn" type="button">
+              Save Round
+            </button>
+          </div>
+        </div>
+
+        <p id="errorMsg" class="error-msg"></p>
+      </div>
+    </section>
+
+    <!-- SCOREBOARD SCREEN -->
+    <section id="scoreboardScreen" class="screen">
+      <div class="card">
+        <h2>Scoreboard</h2>
+    
+
+        <div id="scoreboard" class="scoreboard"></div>
+      </div>
+    </section>
+
+    <!-- HISTORY SCREEN -->
+    <section id="historyScreen" class="screen">
+      <div class="card">
+        <div class="section-top">
+          <h2>Round History</h2>
+
+          <button id="undoBtn" class="small-btn" type="button">
+            Undo Last Round
+          </button>
+        </div>
+
+     <div class="table-wrap history-table-wrap">
+  <table>
+    <thead id="historyHead"></thead>
+    <tbody id="historyBody"></tbody>
+  </table>
+</div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
